@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formação em Tecnologia e Manutenção em Rolamento</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        
+        :root {
+            
+            --primary-dark: #000000;   
+            --secondary-dark: #1a1a1a; 
+            --neutral-gray: #333333;   
+            
+           
+            --accent-color: #21c21e;   
+            --accent-hover: #1a9c18;   
+            
+           
+            --text-light: #ffffff;    
+            --bg-light: #f4f4f4;      
+            --bg-white: #ffffff;      
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--secondary-dark);
+            background-color: var(--bg-light);
+            padding-top: 80px; 
+        }
+
+        
+        .navbar {
+            background-color: var(--bg-white);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            height: 80px;
+            width: 100%;
+            position: fixed; 
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%; 
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            max-height: 55px; 
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+        }
+
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        strong {
+            font-weight: 700;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        
+        .btn-cta {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(33, 194, 30, 0.3);
+        }
+
+        .btn-cta:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(33, 194, 30, 0.4);
+        }
+
+       
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgb(7, 7, 7));
+            background-size: cover;
+            background-position: center;
+            color: var(--text-light);
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero h1, .hero h2 {
+            color: var(--text-light);
+        }
+
+        .hero-top-tag {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(15, 15, 15, 0.7);
+        }
+
+        .hero h2 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+    
+
+        .event-details {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            background-color: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .detail-item i {
+            color: var(--accent-color);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .vagas-limitadas {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+            box-shadow: 0 2px 15px rgba(33, 194, 30, 0.5);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 2px 15px rgba(33, 194, 30, 0.5); }
+            50% { transform: scale(1.05); box-shadow: 0 2px 25px rgba(33, 194, 30, 0.7); }
+            100% { transform: scale(1); box-shadow: 0 2px 15px rgba(33, 194, 30, 0.5); }
+        }
+
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        
+        .audience {
+            background-color: var(--bg-white);
+        }
+
+        .audience-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            list-style: none;
+        }
+
+        .audience-list li {
+            background: var(--bg-light);
+            padding: 20px 25px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-dark);
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.05rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .audience-list li i {
+            color: var(--accent-color);
+            margin-right: 15px;
+            font-size: 1.3rem;
+        }
+
+        
+        .skills {
+            background-color: var(--bg-light);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: var(--bg-white);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-top: 4px solid var(--accent-color);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .skill-icon {
+            font-size: 3.5rem;
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .skill-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .skill-card p {
+            color: var(--neutral-gray);
+        }
+
+      
+        .methodology {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            position: relative;
+            background-image: linear-gradient(var(--primary-dark), var(--primary-dark)), url('https://www.transparenttextures.com/patterns/cubes.png');
+        }
+        
+        .methodology .section-title {
+            color: var(--text-light);
+        }
+        
+        .methodology .section-title::after {
+            background-color: var(--accent-color);
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .step-card {
+            background: rgba(255,255,255,0.05);
+            padding: 40px 30px;
+            border-radius: 12px;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.08);
+            border-color: var(--accent-color);
+        }
+
+        .step-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.9rem;
+            font-weight: 800;
+            color: rgb(248, 247, 247);
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            line-height: 1;
+        }
+
+        .step-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step-card p {
+            position: relative;
+            z-index: 1;
+            color: #cccccc;
+        }
+
+        
+        .curriculum {
+            background-color: var(--bg-white);
+        }
+
+        .curriculum-stage {
+            margin-bottom: 40px;
+            background: var(--bg-light);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            border-left: 2px solid transparent;
+        }
+
+        .curriculum-stage.presencial-highlight {
+            border-left: 5px solid var(--accent-color);
+            background-color: #f0fdf0;
+        }
+
+        .curriculum-stage h3 {
+            color: var(--primary-dark);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            font-size: 1.4rem;
+        }
+        
+        .curriculum-stage h3 i {
+            margin-right: 15px;
+            font-size: 1.6rem;
+            color: var(--accent-color);
+        }
+
+        .module-list {
+            list-style: none;
+            columns: 2;
+            column-gap: 40px;
+        }
+
+        .module-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            break-inside: avoid;
+            font-weight: 500;
+        }
+
+        .module-list li::before {
+            content: '•';
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        
+        .certificate-section {
+            background-color: #fff;
+            padding: 80px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .certificate-box {
+            display: flex;
+            align-items: center;
+            background: var(--bg-light);
+            padding: 0;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        
+        .cert-image-col {
+            flex: 1;
+            max-width: 45%;
+        }
+        
+        .cert-image-col img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            content: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            min-height: 350px;
+            filter: grayscale(20%);
+        }
+        
+        .cert-content-col {
+            flex: 1.5;
+            padding: 50px;
+        }
+        
+        .cert-icon-small {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        .cert-content-col h2 {
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .cert-content-col p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--neutral-gray);
+        }
+
+        
+        .bonus {
+            background-color: #fafafa;
+        }
+
+        .bonus-grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .bonus-card {
+            background: var(--bg-white);
+            padding: 40px;
+            border-radius: 12px;
+            flex: 1;
+            min-width: 280px;
+            max-width: 500px;
+            border: 2px dashed var(--neutral-gray);
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        
+        .bonus-card:hover {
+            transform: translateY(-5px);
+            background-color: #fff;
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 20px rgba(33, 194, 30, 0.1);
+        }
+        
+        .bonus-card i {
+            font-size: 3.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+
+        .bonus-card:hover i {
+            color: var(--accent-color);
+        }
+        
+        .bonus-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+        
+        .bonus-card p {
+            color: var(--neutral-gray);
+        }
+
+        
+        .instructor {
+            background-color: var(--bg-white);
+        }
+
+        .instructor-box {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-light);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid #eee;
+        }
+
+        .instructor-img-container {
+            flex-shrink: 0;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid var(--accent-color);
+            box-shadow: 0 5px 20px rgba(33, 194, 30, 0.3);
+        }
+        
+        
+        .instructor-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            
+            content: url('https://portaldainspecao.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-29-at-09.50.43-1024x768.jpeg');
+            filter: grayscale(10%);
+        }
+
+        .instructor-bio h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .instructor-role {
+            color: var(--accent-color);
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+        }
+        
+        .instructor-bio p {
+            font-size: 1.05rem;
+            color: var(--neutral-gray);
+        }
+
+        
+        .final-cta {
+            background-color: var(--primary-dark);
+            text-align: center;
+            color: white;
+            padding: 80px 0;
+            background-image: linear-gradient(rgba(15, 15, 15, 0.92), rgba(15, 15, 15, 0.92)), url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+        }
+        .final-cta h2 {
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            color: var(--text-light);
+        }
+        
+        .final-cta p {
+            color: #cccccc;
+        }
+
+        footer {
+            background-color: #111111;
+            color: #777;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--accent-color);
+        }
+
+
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero { padding: 80px 0; }
+            .event-details { flex-direction: column; gap: 15px; align-items: center; }
+            .detail-item { width: 100%; justify-content: center; }
+            .section-title { font-size: 1.8rem; }
+            .skills-grid, .audience-list, .bonus-grid, .steps-container { grid-template-columns: 1fr; }
+            .module-list { columns: 1; }
+            
+            .instructor-box { flex-direction: column; text-align: center; padding: 30px; gap: 30px; }
+            .instructor-img-container { width: 180px; height: 180px; }
+            
+            
+            .certificate-box { flex-direction: column; }
+            .cert-image-col { max-width: 100%; width: 100%; }
+            .cert-image-col img { min-height: 250px; }
+            .cert-content-col { padding: 30px; text-align: center; }
+            .cert-icon-small { margin-bottom: 15px; }
+
+           
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none; 
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-white);
+                padding: 20px 0;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+                border-top: 1px solid #eee;
+            }
+
+            .nav-links.active {
+                display: flex; 
+            }
+            
+            .nav-links a {
+                padding: 15px 0;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid #f0f0f0;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="nav-logo">
+            <img src="https://portaldainspecao.com/wp-content/uploads/2020/06/WhatsApp-Image-2020-06-01-at-18.03.31.jpeg" alt="Logo Portal da Inspeção">
+        </a>
+        
+        <div class="hamburger" id="hamburger-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="nav-links" id="nav-menu">
+            <a href=" https://portaldainspecao.com/agenda-de-treinamentos-2026/">Home</a>
+            <a href="https://portaldainspecao.com/cursos/">Cursos</a>
+            <a href="https://portaldainspecao.com/blog/">Blog</a>
+            <a href="https://portaldainspecao.com/a-empresa/">Sobre Nós</a>
+            <a href="https://portaldainspecao.com/" style="color: var(--accent-color);">Área do Aluno</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <span class="hero-top-tag">Formação Híbrida Especializada</span>
+            <h1> Reduza erros, retrabalho e custos, dominando a montagem e desmontagem de rolamentos </h1>
+            
+            
+            <div class="vagas-limitadas">Restam Poucas Vagas Disponíveis!</div>
+            
+            <div class="event-details">
+                <div class="detail-item"><i class="far fa-calendar-alt"></i> 19 a 20 de Março</div>
+                <div class="detail-item"><i class="fas fa-map-marker-alt"></i> Portal da Inspeção - Conselheiro Lafaiete</div>
+            </div>
+
+            <a href="https://wa.me/5531971367681?text=Ol%C3%A1%2C%20estava%20no%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20treinamentos%20presenciais." class="btn-cta">Quero fazer a minha inscrição</a>
+        </div>
+    </header>
+
+    <section class="audience">
+        <div class="container">
+            <h2 class="section-title">Para quem é esta formação?</h2>
+            <ul class="audience-list">
+                <li><i class="fas fa-check-circle"></i> Mecânicos</li>
+                <li><i class="fas fa-check-circle"></i> Lubrificadores</li>
+                <li><i class="fas fa-check-circle"></i> Técnicos de Manutenção e Inspeção</li>
+                <li><i class="fas fa-check-circle"></i> Engenheiros e Analistas de Manutenção</li>
+                <li><i class="fas fa-check-circle"></i> Supervisores de Manutenção</li>
+                <li><i class="fas fa-check-circle"></i> Coordenadores de Manutenção</li>
+                <li><i class="fas fa-check-circle"></i> Profissionais entusiastas que querem dominar o processo</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="skills">
+        <div class="container">
+            <h2 class="section-title">Habilidades que você vai adquirir</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-wrench skill-icon"></i>
+                    <h3>Montar e desmontar com segurança e precisão</h3>
+                    <p>Você aprenderá a executar corretamente a montagem e desmontagem de rolamentos de furo cilíndrico, cônico e bipartidos, utilizando métodos corretos para evitar danos.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-screwdriver-wrench skill-icon"></i>
+                    <h3>Manuseio de Ferramentas Específicas</h3>
+                    <p>Domine o uso prático de equipamentos essenciais como <strong>aquecedor indutivo, micrômetro, súbito (bore gauge)</strong> e outras ferramentas de precisão.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-cogs skill-icon"></i>
+                    <h3>Ajustar rolamentos e mancais na prática</h3>
+                    <p>Desenvolvimento da habilidade de aplicar ajustes e tolerâncias corretamente, garantindo folga adequada, bom assentamento e evitando problemas de vibração e ruído.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-oil-can skill-icon"></i>
+                    <h3>Lubrificar e relubrificar corretamente em campo</h3>
+                    <p>Capacidade de aplicar a quantidade certa de graxa ou óleo, escolher o lubrificante adequado e definir intervalos de relubrificação, prevenindo falhas comuns.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-search skill-icon"></i>
+                    <h3>Inspecionar e identificar falhas reais</h3>
+                    <p>Habilidade prática para avaliar visualmente e mecanicamente rolamentos, identificando sinais de desgaste, contaminação, superaquecimento e corrosão.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="methodology">
+        <div class="container">
+            <h2 class="section-title">Como vai funcionar a formação</h2>
+            <div class="steps-container">
+                <div class="step-card">
+                    <span class="step-number">01</span>
+                    <h3>Etapa 01: Treinamento Online (Fundamentos)</h3>
+                    <h5  style="color: #10fd08;">Carga horária de 30h</h5> 
+                    <p>Acesso imediato ao treinamento "Tecnologia e Manutenção em Rolamento" no formato online para nivelamento de todos os alunos.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">02</span>
+                    <h3 >Etapa 02: Treinamento Presencial (A Prática)</h3>
+                     <h5  style="color: #10fd08;">Carga horária de 16h</h5>
+                    <p>Realizado em Conselheiro Lafaiete, com foco total na prática de ajuste, montagem e desmontagem real de rolamentos.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">03</span>
+                    <h3>Etapa 03: Online e Ao Vivo (Análise de Falhas)</h3>
+                     <h5  style="color: #10fd08;">Carga horária de 8h</h5>
+                     <p></p>
+                    <p>Treinamento online ao vivo para aprofundar a habilidade técnica na análise de falhas em rolamentos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="curriculum">
+        <div class="container">
+            <h2 class="section-title">Conteúdo Programático Detalhado</h2>
+            
+            <div class="curriculum-stage">
+                <h3><i class="fas fa-laptop"></i> Conteúdo da Etapa 01 (Online Gravado)</h3>
+                <ul class="module-list">
+                    <li>Módulo 1 – Fundamentos</li>
+                    <li>Módulo 2 – Ajustes e Tolerâncias</li>
+                    <li>Módulo 3 – Montagem e Desmontagem: Furo Cilíndrico</li>
+                    <li>Módulo 4 – Montagem e Desmontagem: Furo Cônico</li>
+                    <li>Módulo 5 – Rolamentos Bipartidos</li>
+                    <li>Módulo 6 – Mancais e Buchas</li>
+                    <li>Módulo 7 – Lubrificação e Relubrificação</li>
+                    <li>Módulo 8 – Cálculo de Vida</li>
+                    <li>Módulo 9 – Inspeção de Rolamentos</li>
+                </ul>
+            </div>
+
+             <div class="curriculum-stage presencial-highlight">
+                <h3><i class="fas fa-hands-on"></i> Conteúdo da Etapa 02 (Presencial Prático)</h3>
+                <ul class="module-list">
+                    <li>Prática de Ajustes e Tolerâncias</li>
+                    <li>Prática de Montagem e Desmontagem: Furo Cilíndrico</li>
+                    <li>Prática de Montagem e Desmontagem: Furo Cônico</li>
+                    <li>Uso de ferramentas especiais de montagem</li>
+                </ul>
+            </div>
+
+             <div class="curriculum-stage">
+                <h3><i class="fas fa-video"></i> Conteúdo da Etapa 03 (Online Ao Vivo)</h3>
+                <ul class="module-list">
+                    <li>Módulo 1 – Fundamentos da Análise de Falhas</li>
+                    <li>Módulo 2 – Tipos e Modos de Falha</li>
+                    <li>Módulo 3 – Normas ISO Aplicadas (15243, 281 e 76)</li>
+                    <li>Módulo 4 – Inspeção Técnica de Rolamentos</li>
+                    <li>Módulo 5 – Identificação de Danos conforme ISO 15243</li>
+                    <li>Módulo 6 – Análise de Causa Raiz (RCA)</li>
+                    <li>Módulo 7 – Lubrificação como Fator Crítico</li>
+                    <li>Módulo 8 – Estudos de Caso e Análises Práticas</li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="https://wa.me/5531971367681?text=Ol%C3%A1%2C%20estava%20no%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20treinamentos%20presenciais." class="btn-cta">Quero garantir minha vaga na formação completa</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="certificate-section">
+        <div class="container">
+            <div class="certificate-box">
+                
+                
+                </div>
+                <div class="cert-content-col">
+                    <i class="fas fa-award cert-icon-small"></i>
+                    <h2>Certificação Profissional Inclusa</h2>
+                    <p>Ao concluir todas as etapas da formação, você receberá um <strong>Certificado Oficial do Portal da Inspeção</strong>.</p>
+                    <p>Este documento comprova sua capacidade técnica e prática em tecnologia, montagem, desmontagem e análise de falhas em rolamentos, sendo um diferencial importante para o mercado de trabalho.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bonus">
+        <div class="container">
+            <h2 class="section-title">Bônus Exclusivos</h2>
+            <div class="bonus-grid">
+                <div class="bonus-card">
+                    <i class="fas fa-desktop"></i>
+                    <h3>Plataforma de Estudos</h3>
+                    <p>Acesso à plataforma do Portal da Inspeção com materiais complementares.</p>
+                </div>
+                <div class="bonus-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Material Didático</h3>
+                    <p>Acesso a apostilas completas e materiais impressos para acompanhamento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="instructor">
+        <div class="container">
+            <h2 class="section-title">Conheça o Professor</h2>
+            <div class="instructor-box">
+                <div class="instructor-img-container">
+                    <img>
+                </div>
+                <div class="instructor-bio">
+                    <h3>William Almeida</h3>
+                    <span class="instructor-role">Engenheiro Mecânico & Especialista</span>
+                    <p>William é proprietário da Girus Acionamento. Possui mais de 25 anos de experiência prática e de campo na área de rolamentos e transmissão de potência, atuando diretamente na solução de problemas complexos na indústria.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="container">
+            <h2>Domine a manutenção de rolamentos e eleve o nível da sua carreira.</h2>
+            <p style="margin-bottom: 30px; font-size: 1.3rem; font-weight: 500;">As vagas para a turma presencial são extremamente limitadas.</p>
+            <a href="https://wa.me/5531971367681?text=Ol%C3%A1%2C%20estava%20no%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20treinamentos%20presenciais." class="btn-cta" style="transform: scale(1.1);">Quero fazer a minha inscrição agora</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Portal da Inspeção. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
